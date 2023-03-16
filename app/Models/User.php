@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Address;
+use App\Models\Discount;
 
 class User extends Authenticatable
 {
@@ -27,6 +29,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'discount_id',
+        'discount_type',
+        'discount_amount',
     ];
 
     /**
@@ -58,4 +64,15 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
+
+    public function discount()
+    {
+        return $this->belongsTo(Discount::class);
+    }
 }

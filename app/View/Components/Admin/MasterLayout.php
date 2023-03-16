@@ -21,6 +21,6 @@ class MasterLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.admin.master-layout');
+        return view('admin.layouts.master-layout');
     }
 }

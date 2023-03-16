@@ -21,10 +21,6 @@ class MasterLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        return <<<'blade'
-<div>
-    <!-- Order your soul. Reduce your wants. - Augustine -->
-</div>
-blade;
+        return view('front.layouts.master-layout');
     }
 }
