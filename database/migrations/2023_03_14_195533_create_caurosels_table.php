@@ -13,15 +13,14 @@ return new class extends Migration
     {
         Schema::create('caurosels', function (Blueprint $table) {
             $table->id();
-            $table->text('image');
-            $table->string('image_link', 500)->nullabel();
+            $table->string('image_link', 2048)->nullabel();
             $table->string('title')->nullabel();
             $table->string('subtitle')->nullabel();
             $table->text('text')->nullabel();
             $table->string('button_one_text')->nullabel();
             $table->string('button_two_text')->nullabel();
-            $table->string('button_one_link', 500)->nullabel();
-            $table->string('button_two_link', 500)->nullabel();
+            $table->string('button_one_link', 2048)->nullabel();
+            $table->string('button_two_link', 2048)->nullabel();
             $table->timestamps();
         });
     }

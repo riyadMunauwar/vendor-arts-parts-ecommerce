@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('selling_features', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('link', 500)->nullalbe();
-            $table->string('icon', 500)->nullable();
+            $table->string('link', 2048)->nullalbe();
             $table->timestamps();
         });
     }

@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('coupons', function (Blueprint $table) {
+        Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('code');
-            $table->enum('type', ['fixed', 'percentage'])->default('percentage');
-            $table->float('amount');
-            $table->dateTime('start');
-            $table->dateTime('end');
+            $table->string('name');
             $table->text('description')->nullable();
+            $table->boolean('is_enabled')->default(true);
+            $table->boolean('is_default')->default(false);
+            $table->json('data')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('coupons');
+        Schema::dropIfExists('payment_methods');
     }
 };

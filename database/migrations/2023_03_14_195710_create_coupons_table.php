@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('coupons', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->integer('order')->nullable()->default(0);
+            $table->string('name')->nullable();
+            $table->string('code');
+            $table->enum('type', ['fixed', 'percentage'])->default('percentage');
+            $table->float('amount');
+            $table->dateTime('start_at');
+            $table->dateTime('end_at');
             $table->text('description')->nullable();
-            $table->foreignId('parent_id')->nullable()->constrained('categories', 'id');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('coupons');
     }
 };

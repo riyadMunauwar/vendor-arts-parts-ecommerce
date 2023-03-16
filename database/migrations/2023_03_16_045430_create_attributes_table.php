@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payment_methods', function (Blueprint $table) {
+        Schema::create('attributes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
-            $table->boolean('is_enabled')->default('true');
-            $table->boolean('is_default')->default('false');
-            $table->jsaon('data')->nullable();
+            $table->string('value', 2048)->nullable();
+            $table->foreignId('product_id')->constrained();
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payment_methods');
+        Schema::dropIfExists('attributes');
     }
 };

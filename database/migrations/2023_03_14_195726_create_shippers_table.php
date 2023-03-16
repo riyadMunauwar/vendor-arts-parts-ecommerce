@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('shippers', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_global')->default(false);
+            $table->boolean('is_active')->default(false);
             $table->string('name');
             $table->string('shipping_time')->nullable();
             $table->float('shipping_cost')->nullable();
+            $table->json('data')->nullable();
             $table->timestamps();
         });
     }

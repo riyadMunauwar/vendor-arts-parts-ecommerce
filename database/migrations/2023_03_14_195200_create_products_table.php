@@ -30,8 +30,9 @@ return new class extends Migration
             $table->text('compatibility')->nullable();
             $table->text('features')->nullable();
             $table->text('description')->nullable();
-            $table->boolean('is_featured')->default('false');
-            $table->boolean('is_premium')->default('false');
+            $table->string('special_bedge')->nullable();
+            $table->boolean('is_featured')->default(false);
+            $table->boolean('is_premium')->default(false);
             $table->timestamps();
         });
     }

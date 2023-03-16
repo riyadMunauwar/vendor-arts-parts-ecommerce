@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('recommendation', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('link', 2048)->nullalbe();
-            $table->foreignId('category_id')->nullalbe()->constrained();
+            $table->foreignId('recommended_by_id')->constrained('products', 'id');
+            $table->foreignId('recommended_id')->constrained('products', 'id');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('recommendation');
     }
 };
