@@ -53,16 +53,17 @@
         <!-- Sweet Alert Cinfig -->
         <script>
 
-            @if(session()->has('swalToastOption'))
+            @if(session()->has('swalToastOptions'))
 
                 @php 
-                    $swalToastOption = session('swalToastOption');
+                    $swalToastOption = session('swalToastOptions');
                 @endphp 
 
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
                     showConfirmButton: false,
+                    confirmButtonColor: '',
                     timer: 3000,
                     timerProgressBar: true,
                     color: "{{ $swalToastOption['color'] }}",
@@ -72,28 +73,96 @@
                 
                 Toast.fire({
                     icon: "{{ $swalToastOption['icon'] }}",
-                    titleText: "{{ $swalToastOption['title'] }}",
+                    title: "{{ $swalToastOption['title'] }}",
                 })
 
             @endif
 
-            @if(session()->has('swalOption'))
+            @if(session()->has('swalAlertOptions'))
 
                 @php 
-                    $swalOption = session('swalOption');
+                    $swalOption = session('swalAlertOptions');
                 @endphp 
 
                 Swal.fire({
                     showConfirmButton: true,
+                    confirmButtonColor: '',
                     color: "{{ $swalOption['color'] }}",
                     iconColor: "{{ $swalOption['iconColor'] }}",
                     background: "{{ $swalOption['background'] }}",
                     icon: "{{ $swalOption['icon'] }}",
-                    titleText: "{{ $swalOption['title'] }}",
+                    title: "{{ $swalOption['title'] }}",
                     text: "{{ $swalOption['text'] }}",
                 });
 
             @endif
+
+            window.addEventListener("DOMContentLoaded", function(){
+                
+                window.addEventListener('swal:toast', function(event){
+
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        confirmButtonColor: '',
+                        timer: 3000,
+                        timerProgressBar: true,
+                        color: event.detail.color,
+                        iconColor: event.detail.iconColor,
+                        background: event.detail.background,
+                    });
+                    
+                    Toast.fire({
+                        icon: event.detail.icon,
+                        title: event.detail.title,
+                    })
+
+                })
+
+                window.addEventListener('swal:alert', function(event){
+
+                    Swal.fire({
+                        showConfirmButton: true,
+                        color: event.detail.color,
+                        iconColor: event.detail.iconColor,
+                        background: event.detail.background,
+                        icon: event.detail.icon,
+                        title: event.detail.title,
+                        text: event.detail.text,
+                    });
+
+                })
+
+                window.addEventListener('swal:confirm', function(event){
+
+                    Swal.fire({
+                        showConfirmButton: true,
+                        showCancelButton: true,
+                        showCloseButton: true,
+                        confirmButtonText: 'Yes, Delete it !',
+                        cancelButtonText: 'Cacnel',
+                        confirmButtonColor: '',
+                        cancelButtonColor: '',
+                        color: event.detail.color,
+                        iconColor: event.detail.iconColor,
+                        background: event.detail.background,
+                        icon: event.detail.icon,
+                        title: event.detail.title,
+                        text: event.detail.text,
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then(function({isConfirmed}){
+
+                        if(isConfirmed){
+                            window.livewire.emit(event.detail.event, event.detail.payload)
+                        }
+
+                    })
+
+                })
+            });
 
         </script>
     </body>

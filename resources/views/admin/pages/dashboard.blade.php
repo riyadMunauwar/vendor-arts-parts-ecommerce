@@ -1,3 +1,3 @@
 <x-admin.master-layout title="Dashboard">
-home
+    <livewire:test />
 </x-admin.master-layout>

@@ -1,15 +1,15 @@
 <?php
 
 
-namespace App\Tratis;
+namespace App\Traits;
 
 
 trait WithSweetAlertToast 
 {
 
-    public function success($title)
+    public function successToast($title)
     {
-        $this->fireBrowserEvent([
+        $this->fireToastBrowserEvent([
             'color' => '#fff',
             'iconColor' => '#fff',
             'background' => '#a5dc86',
@@ -18,9 +18,9 @@ trait WithSweetAlertToast
         ]);
     }
 
-    public function error($title)
+    public function errorToast($title)
     {
-        $this->fireBrowserEvent([
+        $this->fireToastBrowserEvent([
             'color' => '#fff',
             'iconColor' => '#fff',
             'background' => '#f27474',
@@ -30,9 +30,9 @@ trait WithSweetAlertToast
     }
 
 
-    public function warning($title)
+    public function warningToast($title)
     {
-        $this->fireBrowserEvent([
+        $this->fireToastBrowserEvent([
             'color' => '#fbbf24',
             'iconColor' => '#fff',
             'background' => '#f27474',
@@ -41,9 +41,9 @@ trait WithSweetAlertToast
         ]);
     }
 
-    public function info($title)
+    public function infoToast($title)
     {
-        $this->fireBrowserEvent([
+        $this->fireToastBrowserEvent([
             'color' => '#fff',
             'iconColor' => '#fff',
             'background' => '#3fc3ee',
@@ -52,9 +52,9 @@ trait WithSweetAlertToast
         ]);
     }
 
-    public function question($title)
+    public function questionToast($title)
     {
-        $this->fireBrowserEvent([
+        $this->fireToastBrowserEvent([
             'color' => '#fff',
             'iconColor' => '#fff',
             'background' => '#87adbd',
@@ -63,13 +63,22 @@ trait WithSweetAlertToast
         ]);
     }
 
-    public function toast($options = [])
+
+    public function toast($title)
     {
-        $this->fireBrowserEvent($options);
+        $this->fireToastBrowserEvent([
+            'title' => $title,
+        ]);
     }
 
 
-    private function preparedOptions($options)
+    public function customToast($options = [])
+    {
+        $this->fireToastBrowserEvent($options);
+    }
+
+
+    private function preparedToastOptions($options)
     {
         $defaultOptions = [
             'color' => '',
@@ -84,8 +93,9 @@ trait WithSweetAlertToast
 
     
 
-    private function fireBrowserEvent($config)
+    private function fireToastBrowserEvent($options)
     {
-        $this->dispatchBrowserEvent('init:swalToast', $this->preparedOptions($options));
+        $this->dispatchBrowserEvent('swal:toast', $this->preparedToastOptions($options));
     }
+
 }

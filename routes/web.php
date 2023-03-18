@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('/swal', function(){
     $toast = new SweetAlert();
-    $toast->error('success', 'lorem ispum omit submit', );
+    $toast->success('your', 'sfd');
     return view('admin.pages.dashboard');
 });
 

@@ -6,58 +6,93 @@ class SweetAlert
 {
 
 
-    public function success($title = '', $message = '', $options = ['color' => 'white', 'iconColor' => 'white'])
+    public function success($title, $message)
     {
-        return $this->prepareToastSession('success', '#a5dc86', $title, $message, $options);
-    }
 
-
-    public function error($title = '', $message = '', $options = ['color' => 'white', 'iconColor' => 'white'])
-    {
-        return $this->prepareToastSession('error', '#f27474', $title,  $message, $options);
-    }
-
-
-    public function warning($title = '', $message = '', $options = ['color' => 'white', 'iconColor' => 'white'])
-    {
-        return $this->prepareToastSession('warning', '#fbbf24', $title, $message, $options);
-    }
-
-
-    public function info($title = '', $message = '', $options = ['color' => 'white', 'iconColor' => 'white'])
-    {   
-        return $this->prepareToastSession('info', '#3fc3ee',$title, $message, $options);
-    }
-
-
-
-    public function question($title = '', $message = '', $options = ['color' => 'white', 'iconColor' => 'white'])
-    {
-        return $this->prepareToastSession('question', '#87adbd', $title, $message, $options);
-    }
-
-
-    public function message($title = '', $message = '', $options = ['color' => 'white', 'iconColor' => 'white'])
-    {
-        return $this->prepareToastSession(false, '#fff', $title, $message, $options);
-    }
-
-
-
-    private function prepareToastSession($toastType = false, $toastBackgroundColor = false, $title,  $message = '', $options = [])
-    {
-        $defaultOption = [
-            'background' => $toastBackgroundColor ?? '#fff',
-            'color' => '#6b7280',
-            'iconColor' => '#64748b',
-            'icon' => $toastType,
+        return $this->dispatchAlertToSession([
+            'icon' => 'success',
             'title' => $title,
-            'text' => $message
+            'text' => $message,
+        ]);
+
+    }
+
+
+    public function error($title, $message)
+    {
+
+        return $this->dispatchAlertToSession([
+            'icon' => 'error',
+            'title' => $title,
+            'text' => $message,
+        ]);
+
+    }
+
+
+    public function warning($title, $message)
+    {
+
+        return $this->dispatchAlertToSession([
+            'icon' => 'warning',
+            'title' => $title,
+            'text' => $message,
+        ]);
+        
+    }
+
+
+    public function info($title, $message)
+    {   
+
+        return $this->dispatchAlertToSession([
+            'icon' => 'info',
+            'title' => $title,
+            'text' => $message,
+        ]);
+
+    }
+
+
+    public function question($title, $message)
+    {
+
+        return $this->dispatchAlertToSession([
+            'icon' => 'question',
+            'title' => $title,
+            'text' => $message,
+        ]);
+
+    }
+
+
+    public function alert($options)
+    {
+        return $this->dispatchAlertToSession($options);
+    }
+
+
+
+    private function preparedOptions($options)
+    {
+        
+        $defaultOptions = [
+            'background' => '',
+            'color' => '',
+            'iconColor' => '',
+            'icon' => 'success',
+            'title' => '',
+            'text' => ''
         ];
 
-        $finalOption = array_merge($defaultOption, $options);
+        return array_merge($defaultOptions, $options);
 
-        return session()->flash('swalOption', $finalOption);
+    }
+
+
+    private function dispatchAlertToSession($options)
+    {
+        return session()->flash('swalAlertOptions', $this->preparedOptions($options));
     }
 
 }
