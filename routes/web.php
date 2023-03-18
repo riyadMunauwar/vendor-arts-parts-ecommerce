@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Services\SweetAlertToast;
+use App\Services\SweetAlert;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,14 @@ Route::get('/', function () {
 
     // echo 'done';
 });
+
+
+Route::get('/swal', function(){
+    $toast = new SweetAlert();
+    $toast->error('success', 'lorem ispum omit submit', );
+    return view('admin.pages.dashboard');
+});
+
 
 Route::middleware([
     'auth:sanctum',
