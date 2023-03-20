@@ -15,18 +15,6 @@ use App\Services\SweetAlert;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.pages.dashboard');
-
-    // echo 'done';
-});
-
-
-Route::get('/swal', function(){
-    $toast = new SweetAlert();
-    $toast->success('your', 'sfd');
-    return view('admin.pages.dashboard');
-});
 
 
 Route::middleware([
@@ -38,3 +26,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+// Front
+Route::view('/', 'front.pages.home')->name('home');
