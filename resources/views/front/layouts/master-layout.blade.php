@@ -30,7 +30,10 @@
     </head>
     <body class="font-sans antialiased bg-gray-200">
 
+        @include('front.partials.top-header')
         @include('front.partials.header')
+
+
 
         <main>
             {{ $slot }}

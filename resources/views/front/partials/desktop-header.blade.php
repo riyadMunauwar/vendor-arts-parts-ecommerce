@@ -1,30 +1,34 @@
-<header>
+<header class="hidden">
     <!-- Shipping Info Header -->
     <div class="container mx-auto">
 
     </div>
 
     <!-- Header -->
-    <div class="bg-white py-2">
+    <div class="bg-white py-3">
         <div class="container mx-auto">
             <nav class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex-1">
-                    <img class="block h-8" src="https://www.bdshop.com/pub/media/logo/stores/1/BDSHOP-LOGO-2022.jpg" alt="">
+                    <img class="h-8" src="https://www.bdshop.com/pub/media/logo/stores/1/BDSHOP-LOGO-2022.jpg" alt="">
                 </div>
 
                 <!-- Search Form -->
                 <div class="flex-grow">
                     <form>   
                         <div class="flex">
-                            <input type="search" id="default-search" class="w-4/5 h-8 border-1 focus:border-0 focus:ring-gray-800 shadow-sm" placeholder="Search Mockups, Logos..." required>
+                            <input type="search" id="default-search" class="w-4/5 h-10 border-1 focus:border-0 focus:ring-gray-800 shadow-sm" placeholder="Search Mockups, Logos..." required>
                             <button type="submit" class="w-1/5 bg-black text-white">Search</button>
                         </div>
                     </form>
                 </div>
 
                 <!-- Right Menu -->
-                <div class="flex-1 flex justify-end items-center">
+                <div class="flex-1 flex gap-5 justify-end items-center">
+                    <div class="px-2 border-l">
+                        <h1>Call Us</h1>
+                        <h1 class="text-xl font-semibold">01794263387</h1>
+                    </div>
                     <a href="" class="relative inline-flex items-center text-sm font-medium text-center">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
@@ -40,43 +44,87 @@
 
     <!-- Menu Header -->
     <div class="bg-gray-900 text-white">
-        <div class="container mx-auto flex">
-            <a href="" class="group flex items-center gap-1 text-sm py-1 px-2 ">
-                <span>Home</span>
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </span>
-            </a>
-        </div>
-    </div>
-
-    <!-- Mega Menu -->
-    <div class="container mx-auto h-96 bg-white p-6">
-        <div class="">
-            <div>
-                <h5 class="flex items-center mb-2 text-xl font-bold dark:text-white text-gray-700">
-                    <span>Heading</span>
-                    <span class="ml-auto">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex">
+                <a href="" class="group flex items-center gap-1 text-md py-1 px-2 ">
+                    <span>Home</span>
+                    <span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                         </svg>
                     </span>
-                </h5>
-                
-                <div class="flex flex-col">
-                    <a href="" class="text-sm hover:bg-gray-200 px-2 py-1">Home</a>
-                    <a href="" class="text-sm hover:bg-gray-200 px-2 py-1">Home</a>
-                    <a href="" class="text-sm hover:bg-gray-200 px-2 py-1">Home</a>
-                    <a href="" class="text-sm hover:bg-gray-200 px-2 py-1">Home</a>
-                    <a href="" class="text-sm hover:bg-gray-200 px-2 py-1">Home</a>
-                    <a href="" class="text-sm hover:bg-gray-200 px-2 py-1">Home</a>
-                    <a href="" class="text-sm hover:bg-gray-200 px-2 py-1">Home</a>
-                </div>
-                
-        
+                </a>
+            </div>
+            <div class="flex">
+                <a href="" class="text-xs uppercase py-1 px-2 ">
+                    Create An Account
+                </a>
+                <a href="" class="text-xs uppercase py-1 px-2 ">
+                    Sign In
+                </a>
             </div>
         </div>
     </div>
-<header>
+
+    <!-- Mega Menu -->
+    <div class="container mx-auto h-[28rem] bg-white p-6">
+        <div class="max-w-sm mb-8">
+            <form class="flex items-center">
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg aria-hidden="true" class="w-4 h-4 dark:text-gray-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 w-full pl-10 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Search" required="">
+                </div>
+            </form>
+        </div>
+        <div class="grid md:grid-cols-5 lg:grid-cols-6">
+            <div class="overflow-y-auto h-64 megamenu-scroll-bar">
+                <h5 class="flex items-center mb-2 text-md font-bold dark:text-gray-700">
+                    Heading
+                </h5>
+                
+                <div class="flex flex-col">
+                    <a href="" class="text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                    <a href="" class="text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                    <a href="" class="text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                    <div x-data="{isOpen: false}">
+
+                        <a @click="isOpen = !isOpen" class="text-xs cursor-pointer hover:bg-gray-200 px-2 py-1 flex items-center">
+                            <span class="text-sm">Heading</span>
+
+                            <span x-show="isOpen" class="ml-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                                </svg>
+                            </span>
+
+                            <span x-show="!isOpen" class="ml-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </span>
+                        </a>
+
+                        <div  x-show="isOpen" class="flex flex-col ml-3">
+                            <a href="" class="border-l text-xs hover:bg-gray-200 px-2 py-1">children</a>
+                            <a href="" class="border-l text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                            <a href="" class="border-l text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                            <a href="" class="border-l text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                            <a href="" class="border-l text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                            <a href="" class="border-l text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                            <a href="" class="border-l text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                        </div>
+                    </div>
+                    <a href="" class="text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                    <a href="" class="text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                    <a href="" class="text-xs hover:bg-gray-200 px-2 py-1">Home</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</header>

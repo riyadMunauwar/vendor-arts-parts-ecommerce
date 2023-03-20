@@ -17,3 +17,18 @@ background-color: #0f172a;
 background-color: #cbd5e1;
 border-radius: 10px;
 }
+
+/* Mega Menu */
+
+.megamenu-scroll-bar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.megamenu-scroll-bar::-webkit-scrollbar-track {
+background-color: #cbd5e1;
+}
+
+.megamenu-scroll-bar::-webkit-scrollbar-thumb {
+background-color: #0f172a;
+border-radius: 10px;
+}
