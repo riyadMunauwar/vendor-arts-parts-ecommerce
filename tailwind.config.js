@@ -13,6 +13,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans]
             },
         },
     },

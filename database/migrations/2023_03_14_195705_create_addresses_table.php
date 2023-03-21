@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('zipcode')->nullable();
-            $table->string('address_1')->nullable();
-            $table->string('address_2')->nullable();
-            $table->string('email', 2048)->nullable();
+            $table->string('address_1', 2048)->nullable();
+            $table->string('address_2', 2048)->nullable();
+            $table->sring('email', 2048)->nullable();
             $table->string('phone')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();

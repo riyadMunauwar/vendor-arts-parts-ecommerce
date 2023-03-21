@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('country_shipper', function (Blueprint $table) {
+        Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('country_id')->constrained();
-            $table->foreignId('shipper_id')->constrained();
+            $table->float('rating');
+            $table->json('comment')->nullalbe();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('product_id')->constrained();
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('country_shipper');
+        Schema::dropIfExists('ratings');
     }
 };

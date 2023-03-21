@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 500);
-            $table->string('slug', 600);
+            $table->string('name', 2500);
+            $table->string('slug', 2048);
             $table->float('regular_price')->nullable();
             $table->float('sale_price');
             $table->string('sku')->nullable();
@@ -32,7 +32,9 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('special_bedge')->nullable();
             $table->boolean('is_featured')->default(false);
+            $table->boolean('is_published')->default(true);
             $table->boolean('is_premium')->default(false);
+            $table->foreignId('vat_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

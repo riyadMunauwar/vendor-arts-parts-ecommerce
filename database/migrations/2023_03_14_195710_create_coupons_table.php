@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->json('name')->nullable();
             $table->string('code');
             $table->enum('type', ['fixed', 'percentage'])->default('percentage');
             $table->float('amount');
             $table->dateTime('start_at');
             $table->dateTime('end_at');
-            $table->text('description')->nullable();
+            $table->json('description')->nullable();
             $table->timestamps();
         });
     }

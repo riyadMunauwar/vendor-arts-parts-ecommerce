@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->json('name');
+            $table->json('description')->nullable();
             $table->boolean('is_enabled')->default(true);
             $table->boolean('is_default')->default(false);
             $table->json('data')->nullable();

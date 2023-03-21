@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('feature_boxes', function (Blueprint $table) {
             $table->id();
-            $table->string('sup_title', 2048)->nullalbe();
-            $table->string('title', 2048)->nullalbe();
-            $table->string('sub_title', 2048)->nullalbe();
-            $table->string('button_text')->nullalbe();
+            $table->json('sup_title', 2048)->nullalbe();
+            $table->json('title', 2048)->nullalbe();
+            $table->json('sub_title', 2048)->nullalbe();
+            $table->json('button_text')->nullalbe();
             $table->string('button_link', 2048)->nullalbe();
             $table->foreignId('category_id')->nullable()->constrained();
             $table->foreignId('product_id')->nullable()->constrained();

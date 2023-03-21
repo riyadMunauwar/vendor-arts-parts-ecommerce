@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->json('name');
             $table->string('link', 2048)->nullalbe();
             $table->foreignId('category_id')->nullalbe()->constrained();
             $table->timestamps();

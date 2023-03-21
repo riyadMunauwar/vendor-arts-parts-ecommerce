@@ -1,4 +1,4 @@
-<header class="hidden">
+<header class="hidden md:block">
     <!-- Shipping Info Header -->
     <div class="container mx-auto">
 

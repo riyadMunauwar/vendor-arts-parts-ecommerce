@@ -1,4 +1,4 @@
-<header x-data="{isMenuOpen: false, isSearchOpen: false}" class="bg-white py-2">
+<header x-data="{isMenuOpen: false, isSearchOpen: false}" class="bg-white py-2 md:hidden">
     <div class="mx-3 flex items-center justify-between">
         <!-- Logo -->
         <div>
@@ -7,7 +7,17 @@
             </a>
         </div>
 
-        <div class="flex gap-3 items-center">
+        <div class="flex gap-3 items-center justify-center">
+
+            <a href="" class="relative inline-flex justify-center items-center text-sm font-medium text-center">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                    </svg>
+                </span>
+                <div class="absolute inline-flex items-center justify-center w-5 h-5 text-xs text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">8</div>
+            </a>
+
             <span @click="isSearchOpen = !isSearchOpen" class="cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -58,5 +68,69 @@
                 </svg>
             </span>
         </div>
+
+        <div>
+            <ul class="flex flex-col mt-4">
+                <li x-data="{isOpen: false}">
+                    <a @click="isOpen = !isOpen" :class="!isOpen ? 'border-b border-gray-100' : ''" class="flex items-center rounded-md py-1 font-medium pr-4 pl-3 text-gray-700 hover:bg-gray-200">
+                        <span>Home</span>
+
+                        <span x-show="isOpen" class="ml-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                            </svg>
+                        </span>
+
+                        <span x-show="!isOpen" class="ml-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </span>
+                    </a>
+
+                    <ul x-show="isOpen" class="flex flex-col ml-5">
+                        <li x-data="{isOpen: false}">
+                            <a @click="isOpen = !isOpen" :class="!isOpen ? 'border-b border-gray-100' : ''" class="border-l flex items-center py-1 font-medium pr-4 pl-3 text-gray-700 hover:bg-gray-200">
+                                <span>Home</span>
+
+                                <span x-show="isOpen" class="ml-auto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                                    </svg>
+                                </span>
+
+                                <span x-show="!isOpen" class="ml-auto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <ul x-show="isOpen" class="flex flex-col ml-5">
+                                <li x-data="{isOpen: false}">
+                                    <a @click="isOpen = !isOpen" :class="!isOpen ? 'border-b border-gray-100' : ''" class="border-l flex items-center py-1 font-medium pr-4 pl-3 text-gray-700 hover:bg-gray-200">
+                                        <span>Home</span>
+
+                                        <span x-show="isOpen" class="ml-auto">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                                            </svg>
+                                        </span>
+
+                                        <span x-show="!isOpen" class="ml-auto">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                </li>
+            </ul>
+        </div>
+ 
     </nav>
 </header>
